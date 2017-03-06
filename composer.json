@@ -1,0 +1,7 @@
+{
+    "require": {
+        "maximebf/debugbar": "^1.13",
+        "predis/predis": "^1.1",
+        "monolog/monolog": "^1.22"
+    }
+}

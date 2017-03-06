@@ -1,0 +1,2 @@
+Sat 4 01:18:33 Nguyens-MBP php: [ERROR] 1045: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /Users/macosxvn/projects/devtools/scripts/Phalcon/Initializable.php on line 542
+Sat 4 16:13:20 Nguyens-MBP php: [ERROR] 1049: SQLSTATE[HY000] [1049] Unknown database 'pic' in /Users/macosxvn/projects/devtools/scripts/Phalcon/Initializable.php on line 542
