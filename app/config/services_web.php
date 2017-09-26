@@ -3,12 +3,10 @@
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\Router;
 use Phalcon\Mvc\Url as UrlResolver;
-//use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Flash\Direct as Flash;
-
-use Macosxvn\Session\Adapter\Redis as SessionAdapter;
+use Phalcon\Session\Adapter\Redis as SessionAdapter;
 
 /**
  * Registering a router
@@ -36,9 +34,11 @@ $di->setShared('url', function () {
 /**
  * Starts the session the first time some component requests the session service
  */
-$di->setShared('session', function () use ($di){
-    $redis = $di->get("redisShared");
-    $session = new SessionAdapter(['redis' => $redis]);
+$di->set('session', function() {
+    $session = new SessionAdapter([
+        'path' => 'tcp://127.0.0.1:6379?weight=1'
+    ]);
+
     $session->start();
 
     return $session;

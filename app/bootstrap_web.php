@@ -7,9 +7,11 @@ error_reporting(E_ALL);
 
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
+define("VENDOR_PATH", BASE_PATH . "/vendor");
 
 try {
 
+    include VENDOR_PATH . "/autoload.php";
     /**
      * The FactoryDefault Dependency Injector automatically registers the services that
      * provide a full stack framework. These default services can be overidden with custom ones.
@@ -45,20 +47,9 @@ try {
      * Register application modules
      */
     $application->registerModules([
-        'frontend' => [
-            'className' => 'Pic\Modules\Frontend\Module',
-            'router' => 'frontend'
-        ],
         'admin' => [
             'className' => 'Pic\Modules\Admin\Module',
             'router' => 'admin',
-        ],
-        'users' => [
-            'className' => 'Pic\Modules\Users\Module',
-            'router' => [
-                'frontend' => 'users',
-                'backend'  => 'users'
-            ]
         ],
     ]);
 

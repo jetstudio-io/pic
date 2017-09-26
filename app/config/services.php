@@ -71,3 +71,13 @@ $di->setShared("redisShared", function() {
     $redis->connect("127.0.0.1");
     return $redis;
 });
+
+$di->setShared("logger", function () {
+    $config = $this->getConfig();
+    $path = $config->logger->path;
+    if (!file_exists($path)) {
+        mkdir($path, 0777, TRUE);
+    }
+    $logger = new Phalcon\Logger\Adapter\File($path . $config->logger->system);
+    return $logger;
+});

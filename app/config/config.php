@@ -27,6 +27,13 @@ return new \Phalcon\Config([
         'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
     ],
 
+    'logger' => [
+        'path'      => 'var/log/',
+        'system'    => 'system.log',
+        'debug'     => 'debug.log',
+        'exception' => 'exception.log'
+    ],
+
     /**
      * if true, then we print a new line at the end of each CLI execution
      *
